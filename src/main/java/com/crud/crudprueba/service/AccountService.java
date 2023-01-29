@@ -7,8 +7,10 @@ import com.crud.crudprueba.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class AccountService {
+public class AccountService implements IAccountServiceImpl{
 
     @Autowired
     private IUserRepository userRepository;
@@ -16,57 +18,88 @@ public class AccountService {
     @Autowired
     private IDriverRepository driverRepository;
 
-    public Object createAccount(Object account) {
-        if (account instanceof Driver) {
-            return driverRepository.save((Driver) account);
-        } else if (account instanceof User) {
-            return userRepository.save((User) account);
-        }
-        return null;
+    @Override
+    public List<Driver> findAllDrivers() {
+        return (List<Driver>) driverRepository.findAll();
     }
 
-    public Object updateAccount(Object account) {
-        if (account instanceof Driver) {
-            return driverRepository.save((Driver) account);
-        } else if (account instanceof User) {
-            return userRepository.save((User) account);
-        }
-        return null;
+    @Override
+    public Driver findDriverById(Integer id) {
+        return driverRepository.findById(id).orElse(null);
     }
 
-    public Object deleteAccount(Object account) {
-        if (account instanceof Driver) {
-            driverRepository.delete((Driver) account);
-        } else if (account instanceof User) {
-            userRepository.delete((User) account);
-        }
-        return null;
+    @Override
+    public Driver findDriverName(String name) {
+        return driverRepository.findByNameDriver(name);
     }
 
-    public Object getAccountById(Object account) {
-        if (account instanceof Driver) {
-            return driverRepository.findById(((Driver) account).getId());
-        } else if (account instanceof User) {
-            return userRepository.findById(((User) account).getId());
-        }
-        return null;
+    @Override
+    public Driver findDriverDocument(String document) {
+        return driverRepository.findByDocumentDriver(document);
     }
 
-    public Object deleteAccountById(Object account) {
-        if (account instanceof Driver) {
-            driverRepository.deleteById(((Driver) account).getId());
-        } else if (account instanceof User) {
-            userRepository.deleteById(((User) account).getId());
-        }
-        return null;
+    @Override
+    public Driver saveDriver(Driver driver) {
+        return driverRepository.save(driver);
     }
 
-    public Object getAllAccounts(Object account) {
-        if (account instanceof Driver) {
-            return driverRepository.findAll();
-        } else if (account instanceof User) {
-            return userRepository.findAll();
-        }
-        return null;
+    @Override
+    public Driver updateDriver(Driver driver, Integer id) {
+        driver.setDocument(driver.getDocument());
+        driver.setName(driver.getName());
+        driver.setEmail(driver.getEmail());
+        driver.setPassword(driver.getPassword());
+        return driverRepository.save(driver);
+    }
+
+    @Override
+    public void deleteDriver(Driver driver) {
+        driverRepository.delete(driver);
+    }
+
+    @Override
+    public void deleteDriverById(Integer id) {
+        driverRepository.deleteById(id);
+
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        return (List<User>) userRepository.findAll();
+    }
+
+    @Override
+    public User findUserById(Integer id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public User findUserName(String name) {
+        return userRepository.findByNameUser(name);
+    }
+
+    @Override
+    public User findUserDocument(String document) {
+        return userRepository.findByDocumentUser(document);
+    }
+
+    @Override
+    public User saveUser(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User updateUser(User user, Integer id) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public void deleteUser(User user) {
+        userRepository.delete(user);
+    }
+
+    @Override
+    public void deleteUserById(Integer id) {
+        userRepository.deleteById(id);
     }
 }
