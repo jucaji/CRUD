@@ -13,18 +13,18 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "route")
+@Table(name = "route", schema = "crud")
 public class Route {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_route")
     private Integer id;
 
-    @Column(name = "start")
+    @Column(name = "startPoint")
     private Integer start ;
 
-    @Column(name = "end")
+    @Column(name = "endPoint")
     private Integer end;
 
     @Override

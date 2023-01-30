@@ -14,12 +14,12 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "payment")
+@Table(name = "payment", schema = "crud")
 public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_payment")
     private Integer id;
 
     @Column(name = "number_card")

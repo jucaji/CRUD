@@ -8,29 +8,28 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CarService implements ICarService {
+public class CarService implements GenericService<Car>, ICarService {
 
     @Autowired
     private ICarCrudRepository carRepository;
 
-
     @Override
-    public List<Car> findAllCars() {
+    public List<Car> findAll() {
         return (List<Car>) carRepository.findAll();
     }
 
     @Override
-    public Car saveCar(Car car) {
-        return carRepository.save(car);
+    public Car findById(Integer id) {
+        return carRepository.findById(id).orElse(null);
     }
 
     @Override
-    public Car updateCar(Car car, Integer id) {
-        return carRepository.save(car);
+    public Car save(Car object) {
+        return carRepository.save(object);
     }
 
     @Override
-    public void deleteCarById(Integer id) {
+    public void delete(Integer id) {
         carRepository.deleteById(id);
     }
 }

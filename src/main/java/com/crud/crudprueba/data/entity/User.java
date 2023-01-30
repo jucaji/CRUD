@@ -11,11 +11,11 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "crud")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_user")
     private Integer id;
 
     @Column(name = "name")
@@ -29,6 +29,5 @@ public class User {
 
     @Column(name = "password")
     private String password;
-
 
 }

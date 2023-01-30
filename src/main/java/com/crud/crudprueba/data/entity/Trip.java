@@ -15,24 +15,24 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "trip")
+@Table(name = "trip", schema = "crud")
 public class Trip {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_trip")
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "id_user")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "route_id")
+    @JoinColumn(name = "id_route")
     private Route route;
 
     @ManyToOne
-    @JoinColumn(name = "car_id")
+    @JoinColumn(name = "id_car")
     private Car car;
 
     @Column(name = "ammount")

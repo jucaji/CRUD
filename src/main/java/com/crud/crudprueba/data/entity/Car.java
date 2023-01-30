@@ -13,19 +13,19 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "car")
+@Table(name = "car", schema = "crud")
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_car")
     private Integer id;
 
     @Column(name = "licence")
     private String licence;
 
     @Column(name = "passengers")
-    private String passengers;
+    private Integer passengers;
 
     @Column(name = "brand")
     private String brand;

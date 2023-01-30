@@ -1,10 +1,5 @@
 package com.crud.crudprueba.domain.DTO.response;
 
-<<<<<<<< HEAD:src/main/java/com/crud/crudprueba/domain/DTO/response/AccountDTO.java
-========
-import com.crud.crudprueba.domain.models.CreditCard;
-import com.crud.crudprueba.domain.models.Cash;
->>>>>>>> 0fed1cf (feat: "Refactorizando codigo"):src/main/java/com/crud/crudprueba/domain/DTO/response/PaymentDTO.java
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

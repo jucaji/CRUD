@@ -10,30 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/account")
-public class AccountController {
+@RequestMapping("/api")
+public class UserController {
 
-    @Autowired
-    public IUserService accountService;
-
-
-    @GetMapping("/drivers")
-    public ResponseEntity<?> findAllDrivers() {
-        List<?> driverDTOS = accountService.findAllDrivers();
-        try {
-            if (driverDTOS == null) {
-                throw new RuntimeException("No se encontraron conductores");
-            }
-        } catch (Exception e) {
-              return ResponseEntity.badRequest().body(e.getMessage());
-
-        }
-        return ResponseEntity.ok(driverDTOS);
-    }
+    @Autowired(required = true)
+    public IUserService IUserService;
 
     @GetMapping("/users")
     public ResponseEntity<?> findAllUsers() {
-        List<?> usersDTOS = accountService.findAllUsers();
+        List<?> usersDTOS = IUserService.findAllUsers();
         try {
             if (usersDTOS == null) {
                 throw new RuntimeException("No se encontraron usuarios");
