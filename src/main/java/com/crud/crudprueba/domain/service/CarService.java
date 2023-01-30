@@ -1,7 +1,7 @@
 package com.crud.crudprueba.domain.service;
 
-import com.crud.crudprueba.data.entity.UberX;
-import com.crud.crudprueba.data.crud.IUberXCrudRepository;
+import com.crud.crudprueba.data.crud.ICarCrudRepository;
+import com.crud.crudprueba.data.entity.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,36 +11,26 @@ import java.util.List;
 public class CarService implements ICarService {
 
     @Autowired
-    private IUberXCrudRepository carRepository;
+    private ICarCrudRepository carRepository;
 
 
     @Override
-    public List<UberX> findAllUberX() {
-        return (List<UberX>) carRepository.findAll();
+    public List<Car> findAllCars() {
+        return (List<Car>) carRepository.findAll();
     }
 
     @Override
-    public UberX findUberXById(Integer id) {
-        return carRepository.findById(id).orElse(null);
+    public Car saveCar(Car car) {
+        return carRepository.save(car);
     }
 
     @Override
-    public UberX saveUberX(UberX uberX) {
-        return carRepository.save(uberX);
+    public Car updateCar(Car car, Integer id) {
+        return carRepository.save(car);
     }
 
     @Override
-    public UberX updateUberX(UberX uberX, Integer id) {
-        return carRepository.save(uberX);
-    }
-
-    @Override
-    public void deleteUberX(UberX uberX) {
-        carRepository.delete(uberX);
-    }
-
-    @Override
-    public void deleteUberXById(Integer id) {
+    public void deleteCarById(Integer id) {
         carRepository.deleteById(id);
     }
 }

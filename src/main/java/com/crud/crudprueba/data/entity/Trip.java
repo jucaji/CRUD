@@ -1,7 +1,9 @@
-package com.crud.crudprueba.domain.models;
+package com.crud.crudprueba.data.entity;
 
+import com.crud.crudprueba.data.entity.Car;
 import com.crud.crudprueba.data.entity.Route;
 import com.crud.crudprueba.data.entity.User;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -21,18 +23,23 @@ public class Trip {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "user")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "route")
+    @ManyToOne
+    @JoinColumn(name = "route_id")
     private Route route;
 
-    @Column(name = "car")
+    @ManyToOne
+    @JoinColumn(name = "car_id")
     private Car car;
 
     @Column(name = "ammount")
     private Double ammount;
 
+    @ManyToOne
+    @JoinColumn(name = "payment_id")
     private Payment payment;
 
     @Column(name = "completed")

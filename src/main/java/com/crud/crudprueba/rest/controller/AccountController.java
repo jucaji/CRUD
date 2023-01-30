@@ -1,6 +1,6 @@
 package com.crud.crudprueba.rest.controller;
 
-import com.crud.crudprueba.domain.service.IAccountService;
+import com.crud.crudprueba.domain.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import java.util.List;
 public class AccountController {
 
     @Autowired
-    public IAccountService accountService;
+    public IUserService accountService;
 
 
     @GetMapping("/drivers")

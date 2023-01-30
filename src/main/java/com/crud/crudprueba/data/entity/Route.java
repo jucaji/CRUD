@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
@@ -20,8 +22,20 @@ public class Route {
     private Integer id;
 
     @Column(name = "start")
-    private Integer[] start ;
+    private Integer start ;
 
     @Column(name = "end")
-    private Integer[] end;
+    private Integer end;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Route route)) return false;
+        return getId().equals(route.getId()) && getStart().equals(route.getStart()) && getEnd().equals(route.getEnd());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getStart(), getEnd());
+    }
 }
