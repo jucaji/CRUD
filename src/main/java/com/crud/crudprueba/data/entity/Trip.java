@@ -21,7 +21,7 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_trip")
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
@@ -36,10 +36,10 @@ public class Trip {
     private Car car;
 
     @Column(name = "ammount")
-    private Double ammount;
+    private Integer ammount;
 
     @ManyToOne
-    @JoinColumn(name = "payment_id")
+    @JoinColumn(name = "id_payment")
     private Payment payment;
 
     @Column(name = "completed")

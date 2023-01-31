@@ -1,4 +1,4 @@
-package com.crud.crudprueba.rest;
+package com.crud.crudprueba;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

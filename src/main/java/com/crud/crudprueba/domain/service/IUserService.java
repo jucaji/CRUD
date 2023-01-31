@@ -1,13 +1,20 @@
 package com.crud.crudprueba.domain.service;
 
 import com.crud.crudprueba.data.entity.User;
+import com.crud.crudprueba.domain.DTO.response.UserDTO;
 
 
 import java.util.List;
 
 public interface IUserService {
 
-    List<User> findAllUsers();
+    public UserDTO create(UserDTO user);
 
+    public UserDTO getUserById(Long id);
 
+    public List<UserDTO> getAllUsers();
+
+    public void deleteUser(Long id);
+
+    public UserDTO updateUser(UserDTO user);
 }

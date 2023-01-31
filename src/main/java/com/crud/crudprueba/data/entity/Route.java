@@ -19,12 +19,12 @@ public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_route")
-    private Integer id;
+    private Long id;
 
-    @Column(name = "startPoint")
+    @Column(name = "startpoint")
     private Integer start ;
 
-    @Column(name = "endPoint")
+    @Column(name = "endpoint")
     private Integer end;
 
     @Override

@@ -4,5 +4,5 @@ import com.crud.crudprueba.data.entity.Trip;
 
 public interface ITripService {
 
-    void save(Trip tripRequest);
+
 }

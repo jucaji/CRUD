@@ -5,8 +5,8 @@ import java.util.List;
 public interface GenericService<T>{
 
     List<T> findAll();
-    T findById(Integer id);
+    T findById(Long id);
     T save(T object);
-    void delete(Integer id);
+    void delete(Long id);
 
 }

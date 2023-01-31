@@ -11,17 +11,4 @@ import org.springframework.stereotype.Repository;
 public class UserRepository implements IUserRepository {
 
 
-    @Autowired
-    private IUserCrudRepository userCrudRepository;
-
-
-    @Override
-    public User getUserById(Integer id) {
-        return userCrudRepository.findById(id).orElse(null);
-    }
-
-    @Override
-    public User saveUser(User user) {
-        return userCrudRepository.save(user);
-    }
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 
-public interface IRouteCrudRepository extends CrudRepository<Route, Integer>{
+public interface IRouteCrudRepository extends CrudRepository<Route, Long>{
 }

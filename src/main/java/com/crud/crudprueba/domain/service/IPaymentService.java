@@ -7,11 +7,7 @@ import java.util.List;
 
 public interface IPaymentService {
 
-    List<Payment> findAllCards();
 
-    Payment saveCard(Payment creditCard);
-
-    void deleteCardById(Integer id);
 
 
 }
