@@ -21,10 +21,10 @@ public class Route {
     @Column(name = "id_route")
     private Integer id;
 
-    @Column(name = "startPoint")
+    @Column(name = "startpoint")
     private Integer start ;
 
-    @Column(name = "endPoint")
+    @Column(name = "endpoint")
     private Integer end;
 
     @Override

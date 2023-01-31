@@ -20,14 +20,14 @@ import java.util.ArrayList;
 public class TripController {
 
     @Autowired
-    private ITripService TripService;
+    private ITripService tripService;
 
     @PostMapping("/trips")
     public ResponseEntity<?> newTrip(@RequestBody Trip tripRequest, BindingResult bindingResult) {
         if(bindingResult.hasErrors())
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(bindingResult);
         try {
-            TripService.save(tripRequest);
+            tripService.save(tripRequest);
             return ResponseEntity.status(HttpStatus.CREATED).body(new ResultDTO("Trip created successfully"));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ResultDTO("Error creating trip"));

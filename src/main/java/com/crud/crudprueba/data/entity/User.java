@@ -13,12 +13,12 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "crud")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_user")
     private Integer id;
 
     @Column(name = "name")

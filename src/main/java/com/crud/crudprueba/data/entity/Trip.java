@@ -36,10 +36,10 @@ public class Trip {
     private Car car;
 
     @Column(name = "ammount")
-    private Double ammount;
+    private Integer ammount;
 
     @ManyToOne
-    @JoinColumn(name = "payment_id")
+    @JoinColumn(name = "id_payment")
     private Payment payment;
 
     @Column(name = "completed")

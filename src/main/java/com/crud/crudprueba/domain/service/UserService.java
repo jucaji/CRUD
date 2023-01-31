@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserService implements GenericService<User> {
+public class UserService implements GenericService<User>, IUserService {
 
-    @Autowired(required = true)
+    @Autowired()
     private IUserCrudRepository userRepository;
 
     @Override
@@ -43,5 +43,11 @@ public class UserService implements GenericService<User> {
             userDto.setEmail(user.getEmail());
         }
         return usersDto;
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        // TODO ¿Aqui por que implementar una funcionalidad que ya esta arriba?
+        return (List<User>) userRepository.findAll();
     }
 }
