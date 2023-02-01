@@ -7,8 +7,5 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class TripService implements ITripService {
-    @Override
-    public void save(Trip tripRequest) {
-        log.info("Ejecutando SAVE");
-    }
+
 }

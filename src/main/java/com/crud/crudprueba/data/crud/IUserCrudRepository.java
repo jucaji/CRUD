@@ -2,6 +2,7 @@ package com.crud.crudprueba.data.crud;
 
 
 import com.crud.crudprueba.data.entity.User;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -15,5 +16,6 @@ public interface IUserCrudRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.document = :document")
     List<User> findUserSpecific(@Param("document") String document);
+
 
 }
