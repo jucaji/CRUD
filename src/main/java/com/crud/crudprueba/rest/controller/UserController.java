@@ -35,9 +35,10 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @PutMapping("/update")
-    public UserDTO updateUser(@RequestBody UserDTO user){
-        return userService.updateUser(user);
-    }
+    @GetMapping("/find/{document}")
+  public UserDTO findSpecific(@PathVariable("document") String document){
+    return userService.findSpecific(document);
+  }
+
 
 }

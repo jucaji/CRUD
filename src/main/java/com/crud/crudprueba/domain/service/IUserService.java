@@ -17,4 +17,6 @@ public interface IUserService {
     public void deleteUser(Long id);
 
     public UserDTO updateUser(UserDTO user);
+
+    public  UserDTO findSpecific(String document);
 }
