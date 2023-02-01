@@ -32,10 +32,10 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserDTO getUserById(Long id) throws UserNotFoundException {
-        UserDTO userDto = new UserDTO();
+        UserDTO userDto;
         try{
             Optional<User> userEntity = userRepository.findById(id);
-            modelMapper.map(userEntity, UserDTO.class);
+            userDto = modelMapper.map(userEntity, UserDTO.class);
         }catch (EntityNotFoundException e){
             throw new UserNotFoundException(id, e);
         }
@@ -44,7 +44,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<UserDTO> getAllUsers() {
-        List<User> listUserEntity = (List<User>) userRepository.findAll();
+        List<User> listUserEntity = userRepository.findAll();
         return listUserEntity.stream().map(user -> modelMapper.map(user, UserDTO.class)).collect(Collectors.toList());
     }
 
