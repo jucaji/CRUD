@@ -30,7 +30,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * Metodo para crear un usuario
-     * @param user
+     * @param user UserDTO a crear
      * @return UserDTO
      */
     @Override
@@ -42,7 +42,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * Metodo para obtener un usuario por su id
-     * @param id
+     * @param id del usuario
      * @return UserDTO por id
      * @throws UserNotFoundException si no encuentra el usuario
      */
@@ -70,7 +70,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * Metodo para eliminar un usuario por su id
-     * @param id
+     * @param id del usuario
      * @throws UserNotFoundException si no encuentra el usuario
      */
     @Override
