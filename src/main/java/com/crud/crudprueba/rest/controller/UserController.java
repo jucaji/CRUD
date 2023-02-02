@@ -2,7 +2,6 @@ package com.crud.crudprueba.rest.controller;
 
 import com.crud.crudprueba.domain.DTO.response.UserDTO;
 import com.crud.crudprueba.domain.service.IUserService;
-import com.crud.crudprueba.domain.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,10 +34,28 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @GetMapping("/find/{document}")
-  public UserDTO findSpecific(@PathVariable("document") String document){
-    return userService.findSpecific(document);
-  }
+    @GetMapping("/find/{name}")
+    public List<UserDTO> findSpecific(@PathVariable("name") String name){
+        return userService.findNameLike(name);
+    }
 
+     @GetMapping("/findAge18-25")
+     public List<UserDTO> findAge18_25(){
+        return userService.findUsersAgeInterval();
+    }
 
+    @GetMapping("/findNotMarried")
+    public List<UserDTO> findNotMarried(){
+        return userService.findUsersNotMarried();
+    }
+
+    @GetMapping("/findAge/{age}")
+    public List<UserDTO> findAge(@PathVariable("age") int age){
+        return userService.findUsersAge(age);
+    }
+
+    @GetMapping("/findMarriedAndAgeGreater")
+    public List<UserDTO> findMarriedAndAgeGreater(){
+        return userService.findMarriedAndAgeGreater18();
+    }
 }

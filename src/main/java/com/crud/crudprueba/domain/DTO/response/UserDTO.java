@@ -17,5 +17,10 @@ public class UserDTO {
     private String name;
     private String document;
     private String email;
+    private String password;
+    private String city;
+    private Integer phoneNumber;
+    private Integer age;
+    private Boolean married;
 
 }

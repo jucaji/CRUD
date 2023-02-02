@@ -1,6 +1,5 @@
 package com.crud.crudprueba.domain.service;
 
-import com.crud.crudprueba.data.entity.User;
 import com.crud.crudprueba.domain.DTO.response.UserDTO;
 
 
@@ -18,5 +17,13 @@ public interface IUserService {
 
     public UserDTO updateUser(UserDTO user);
 
-    public  UserDTO findSpecific(String document);
+    public  List<UserDTO> findNameLike(String document);
+
+    public List<UserDTO> findUsersAgeInterval();
+
+    public List<UserDTO> findUsersNotMarried();
+
+    public List<UserDTO> findUsersAge(int age);
+
+    public List<UserDTO> findMarriedAndAgeGreater18();
 }

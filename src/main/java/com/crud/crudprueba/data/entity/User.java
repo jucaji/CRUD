@@ -33,6 +33,18 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "phone_number")
+    private Integer phoneNumber;
+
+    @Column(name = "age")
+    private int age;
+
+    @Column(name = "married")
+    private Boolean married;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
